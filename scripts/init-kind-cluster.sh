@@ -8,12 +8,11 @@ echo CLUSTER_NAME=$CLUSTER_NAME;
 # create self-signed certificates
 mkdir -p $ROOT_DIR/certs
 openssl req -new -x509 -sha256 -newkey rsa:4096 -nodes \
-	-subj "/C=MG/ST=Trial/L=K8SLABS/O=Dev/CN=localhost" \
-    -keyout $ROOT_DIR/certs/tls.key \
-    -days 365 \
-    -out $ROOT_DIR/certs/tls.crt
+  -subj "/C=MG/ST=Trial/L=K8SLABS/O=Dev/CN=localhost" \
+  -keyout $ROOT_DIR/certs/tls.key \
+  -days 365 \
+  -out $ROOT_DIR/certs/tls.crt
 
-exit;
 # Create cluster
 kind create cluster --config $ROOT_DIR/manifest/kind-cluster.yaml --name $CLUSTER_NAME
 kubectl wait --for=condition=Ready --all nodes
