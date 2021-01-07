@@ -20,7 +20,7 @@ kubeadmConfigPatches:
     nodefs.available: "0%"
 nodes:
 - role: control-plane
-  image: kindest/node:v1.15.12
+  image: kindest/node:v1.16.15
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
@@ -35,4 +35,4 @@ nodes:
     hostPort: 28443
     protocol: TCP
 - role: worker
-  image: kindest/node:v1.15.12
+  image: kindest/node:v1.16.15
