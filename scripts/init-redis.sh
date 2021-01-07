@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cat <<EOF | kubectl --context $1 apply -f -
+CONTEXT=kind-${1:-kube-labs}
+
+cat <<EOF | kubectl apply --context $CONTEXT -f -
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -79,7 +81,7 @@ spec:
       name: data
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "ssd"
+      storageClassName: "local-path"
       resources:
         requests:
           storage: 500Mi
