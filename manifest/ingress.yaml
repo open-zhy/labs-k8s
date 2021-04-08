@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: tea-svc
+          servicePort: 80
+        path: /tea
+      - backend:
+          serviceName: coffee-svc
+          servicePort: 80
+        path: /coffee
