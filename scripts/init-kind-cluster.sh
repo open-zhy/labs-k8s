@@ -46,7 +46,7 @@ install_ingress_controller() {
 
 install_metrics_server() {
   echo "installing metrics components n kube-system..."
-  kubectl apply -f apply $root_dir/manifest/metrics-server.yaml
+  kubectl apply -f $root_dir/manifest/metrics-server.yaml
   kubectl wait --namespace kube-system \
     --for=condition=ready pod \
     --selector=k8s-app=metrics-server \
