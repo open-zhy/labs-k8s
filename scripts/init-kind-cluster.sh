@@ -65,7 +65,7 @@ setup() {
 
   if [[ $generate_cert == "yes" ]]; then
     create_self_signed_certificates $root_dir/certs
-  if
+  fi
 
   # Create cluster
   echo "creating kind cluster, name=$cluster, version=$version, with_metrics=$with_metrics..."
